@@ -35,7 +35,7 @@ GIF created with ...
 [peek](https://github.com/phw/peek) for Linux. 
 -->
 
-[LiceCap]
+[LiceCap](https://www.cockos.com/licecap/)
 
 ## Notes
 
