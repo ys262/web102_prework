@@ -9,8 +9,8 @@ body {
     width: 50px;
 }
 
-.header {
-    display: flex;
+.header { /* Rule */
+    display: flex; /* declaration block */
     background-color: lightblue;
     padding: 1%;
     align-items: center;
@@ -21,6 +21,11 @@ body {
 
 .stats-container {
     display: flex;
+    background-color: lightblue;
+    cursor: pointer;
+    align-items: flex-start;
+    box-shadow: 0 0 30px lightblue;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .stats-card {
