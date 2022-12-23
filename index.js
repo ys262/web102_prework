@@ -69,20 +69,40 @@ addGamesToPage(GAMES_JSON)
 const contributionsCard = document.getElementById("num-contributions");
 
 // use reduce() to count the number of total contributions by summing the backers
-
-
+const total_backers = GAMES_JSON.reduce((acc, game) => {
+    return acc + game.backers;
+}, 0).toLocaleString('en-US');
+        
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
-
+contributionsCard.innerHTML = `
+            <div>
+                <p> ${total_backers} </p>
+            </div>
+            `
 
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
-
+const total_raisers = GAMES_JSON.reduce((acc, game) => {
+    return acc + game.pledged;
+}, 0).toLocaleString('en-US');
 // set inner HTML using template literal
-
+raisedCard.innerHTML = `
+            <div>
+                <p> &#36 ${total_raisers} </p>
+            </div>
+            `
 
 // grab number of games card and set its inner HTML
 const gamesCard = document.getElementById("num-games");
-
+const total_games = GAMES_JSON.reduce((acc, game) => {
+    return acc + 1;
+}, 0).toLocaleString('en-US');
+// set inner HTML using template literal
+gamesCard.innerHTML = `
+            <div>
+                <p> ${total_games} </p>
+            </div>
+            `
 
 /*************************************************************************************
  * Challenge 5: Add functions to filter the funded and unfunded games
@@ -95,10 +115,11 @@ function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have not yet met their goal
-
-
+    let listOfUnfunded = GAMES_JSON.filter ( (game) => {
+        return game.pledged < game.goal;
+      });
     // use the function we previously created to add the unfunded games to the DOM
-
+    addGamesToPage(listOfUnfunded)
 }
 
 // show only games that are fully funded
@@ -106,10 +127,11 @@ function filterFundedOnly() {
     deleteChildElements(gamesContainer);
 
     // use filter() to get a list of games that have met or exceeded their goal
-
-
+    let listOffunded = GAMES_JSON.filter ( (game) => {
+        return game.pledged >= game.goal;
+      });
     // use the function we previously created to add unfunded games to the DOM
-
+    addGamesToPage(listOffunded)
 }
 
 // show all games
@@ -117,7 +139,7 @@ function showAllGames() {
     deleteChildElements(gamesContainer);
 
     // add all games from the JSON data to the DOM
-
+    addGamesToPage(GAMES_JSON)
 }
 
 // select each button in the "Our Games" section
@@ -126,7 +148,9 @@ const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
 
 // add event listeners with the correct functions to each button
-
+unfundedBtn.addEventListener("click", filterUnfundedOnly);
+fundedBtn.addEventListener("click", filterFundedOnly);
+allBtn.addEventListener("click", showAllGames);
 
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
@@ -137,12 +161,17 @@ const allBtn = document.getElementById("all-btn");
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
-
+const Unfundedgames = GAMES_JSON.filter ( (game) => {
+    return game.pledged < game.goal;
+  }).length;
 
 // create a string that explains the number of unfunded games using the ternary operator
-
+const displaystr = `A total of $100,000 has been funded for 4 games. Currently, ${Unfundedgames == 1 ? "1 game remains unfunded." : Unfundedgames + " games remain unfunded."}`;
 
 // create a new DOM element containing the template string and append it to the description container
+let newpara = document.createElement('p'); // is a node
+newpara.innerHTML = displaystr;
+descriptionContainer.appendChild(newpara);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
