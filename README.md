@@ -24,18 +24,17 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<img src='https://i.imgur.com/Bn9QlCG.gif' title='Video Walkthrough' width='40' alt='Video Walkthrough' />
-<!-- ![https://i.imgur.com/Bn9QlCG.gif] -->
+![Video Walkthrough](https://i.imgur.com/Bn9QlCG.gif)
+<!-- 
+<img src='https://i.imgur.com/Bn9QlCG.gif' title='Video Walkthrough' width='40' height = '30' alt='Video Walkthrough' /> -->
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with [LiceCap](https://www.cockos.com/licecap/)
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
 [peek](https://github.com/phw/peek) for Linux. 
 -->
-
-[LiceCap](https://www.cockos.com/licecap/)
 
 ## Notes
 
