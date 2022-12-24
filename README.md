@@ -26,7 +26,7 @@ Here's a walkthrough of implemented features:
 <!-- ![Video Walkthrough](https://i.imgur.com/Bn9QlCG.gif) -->
 <!-- <img src='https://i.imgur.com/Bn9QlCG.gif'/> -->
 
-![](https://i.imgur.com/Bn9QlCG.gif)
+![](https://github.com/ys262/web102_prework/blob/main/ezgif.com-gif-maker.gif)
 
 
 <!-- Replace this with whatever GIF tool you used! -->
